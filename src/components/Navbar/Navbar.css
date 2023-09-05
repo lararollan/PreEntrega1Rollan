@@ -1,0 +1,23 @@
+.navbar{
+  background-color: rgb(142, 202, 230)
+}
+
+.navbar .navbar-brand{
+  color: rgb(2, 48, 71) !important;
+  font-weight: bold;
+}
+ 
+
+.navbar .nav-item .nav-link {
+  color: rgb(2, 48, 71) !important;
+  padding-left: 3rem !important;
+}
+.cartIcon{
+font-size: 1.5rem;
+
+color: rgb(2, 48, 71) !important;
+}
+
+.number-icon{
+  background-color: #FB8500;
+}
