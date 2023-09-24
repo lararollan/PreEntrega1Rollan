@@ -2,6 +2,7 @@ import "./Navbar.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
+
 const Navbar = () => {
   return (
     <>
@@ -40,7 +41,7 @@ const Navbar = () => {
         
       </ul>
       <i className="bi bi-cart cartIcon"  ></i>
-      <span className="number-icon badge rounded-pill">0</span>
+      <span className="number-icon badge rounded-pill">`0`</span>
      
     </div>
   </div>
