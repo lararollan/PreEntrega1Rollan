@@ -1,7 +1,17 @@
-#greeting{
-    margin-top: 4rem;
+.link{
+    text-decoration: none;
     color: #FB8500;
-    margin: top 10px;
 }
+
+.title{
+    padding: 3rem;
+}
+
+.categoryCard{
+
+    color: #FB8500;
+    border: 0;
+}
+
 
 

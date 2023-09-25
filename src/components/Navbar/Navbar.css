@@ -8,10 +8,22 @@
 }
  
 
-.navbar .nav-item .nav-link {
+.navbar .nav-item{
   color: rgb(2, 48, 71) !important;
   padding-left: 3rem !important;
 }
+
+.products{
+  
+  border: 0;
+}
+
+.drop-menu{
+  
+  border: 0;
+  margin-bottom: 1rem !important;
+}
+
 .cartIcon{
 font-size: 1.5rem;
 
@@ -20,4 +32,8 @@ color: rgb(2, 48, 71) !important;
 
 .number-icon{
   background-color: #FB8500;
+}
+
+.active{
+  color: violet;
 }

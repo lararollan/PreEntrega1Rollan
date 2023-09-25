@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} 
+
+body{
+
+  background-color:aliceblue;
+}
+
+.spinner-border{
+  margin-top: 15%;
+}
+
+.card{
+  margin: 1rem;
+}
