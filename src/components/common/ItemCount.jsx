@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Button, Container} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
     //creo un estado para controlarme el conteo, cuyo estado inicial es el
@@ -27,14 +27,14 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     };
 
     return (
-        <Container>
-            <button onClick={handleDecrement} disabled={count <= initial}>-</button>
+        <div>
+            <Button className="mx-1" onClick={handleDecrement} disabled={count <= initial}>-</Button>
             <span>{count}</span>
-            <button onClick={handleIncrement} disabled={count >= stock}>+</button>
-            <Button onClick={handleAddToCart} disabled={count === 0} variant="primary">
-      <i className="bi bi-cart-fill"></i> Agregar al CARRITO</Button>
-      </Container>
+            <Button className="mx-1" onClick={handleIncrement} disabled={count >= stock}>+</Button>
+            <Button className="mx-1" onClick={handleAddToCart} disabled={count === 0}><i className="bi bi-cart-fill"></i>Agregar al carrito</Button>
+        </div>
     );
 }
 
 export default ItemCount;
+
