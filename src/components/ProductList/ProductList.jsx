@@ -20,7 +20,7 @@ const ProductList = () => {
     return (
 
       <Container>
-            <h2>Productos</h2>
+            <h2 className='categoryTitle'>Productos</h2>
             <Row>
                 {data.map((product) => (
                     <Col key={product.id} xs={12} md={4}>
