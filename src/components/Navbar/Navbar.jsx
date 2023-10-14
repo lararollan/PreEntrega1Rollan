@@ -1,7 +1,9 @@
 import "./Navbar.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Navbar, Nav, Container, Dropdown } from 'react-bootstrap';
+import CartWidget from "../CartWidget/CartWidget";
 import { Link } from 'react-router-dom';
+
 
 
 
@@ -38,20 +40,22 @@ const NavBar = () => {
             </Dropdown.Item>
             <Dropdown.Item >
             <Nav.Link as={Link} to="/products">
-              Todos
-            </Nav.Link>
-            </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-    </Nav.Item>
-            
-          </Nav>
-          <i className="bi bi-cart cartIcon" ></i>
-<span className="number-icon badge rounded-pill">0</span>
+Todos
+</Nav.Link>
+</Dropdown.Item>
+</Dropdown.Menu>
+</Dropdown>
+</Nav.Item>
+</Nav>
+<CartWidget></CartWidget>
 
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+
+</Navbar.Collapse>
+</Container>
+</Navbar>
+        
+    
+      
   );
 };
 

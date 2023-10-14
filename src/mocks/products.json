@@ -5,7 +5,8 @@
             "title": "Simulador de accesos vasculares ecoguiados (General)",
             "price": "$10000",
             "category": "Simuladores",
-            "detail": "Simulador de gelatina reutilizable"
+            "detail": "Simulador de gelatina reutilizable",
+            "stock": 5
             
         },
         {
@@ -14,7 +15,8 @@
             "title": "Simulador de accesos vasculares ecoguiados (Pediátrico)",
             "price": "$15000",
             "category": "Simuladores",
-            "detail": "Simulador de gelatina reutilizable"
+            "detail": "Simulador de gelatina reutilizable",
+            "stock": 3
         },
         {
             "id": 3,
@@ -22,7 +24,8 @@
             "title": "Simulador de bloqueos nerviosos ecoguiados (M. superior)",
             "price": "$9000",
             "category": "Simuladores",
-            "detail": "Simulador de gelatina reutilizable"
+            "detail": "Simulador de gelatina reutilizable",
+            "stock": 6
         },
         {
             "id": 4,
@@ -30,7 +33,8 @@
             "title": "Simulador de bloqueos nerviosos ecoguiados (M. inferior)",
             "price": "$9000",
             "category": "Simuladores",
-            "detail": "Simulador de gelatina reutilizable"
+            "detail": "Simulador de gelatina reutilizable",
+            "stock": 2
         },
         {
             "id": 5,
@@ -38,7 +42,8 @@
             "title": "Curso Hands-on de accesos vasculares ecoguiados",
             "price": "$40000",
             "category": "Cursos",
-            "detail": "Incluye un simulador reutilizable"
+            "detail": "Incluye un simulador reutilizable",
+            "stock": 12
         },
         {
             "id": 6,
@@ -46,7 +51,8 @@
             "title": "Curso Hands-on de bloqueos nerviosos ecoguiados",
             "price": "$40000",
             "category": "Cursos",
-            "detail": "Incluye un simulador reutilizable"
+            "detail": "Incluye un simulador reutilizable",
+            "stock": 12
         },
 
         {
@@ -55,7 +61,8 @@
             "title": "Curso online de accesos vasculares ecoguiados",
             "price": "$20000",
             "category": "Cursos",
-            "detail": "Adquiera los conocimientos básicos"
+            "detail": "Adquiera los conocimientos básicos",
+            "stock": 60
         },
         {
             "id": 8,
@@ -63,6 +70,7 @@
             "title": "Curso online de bloqueos nerviosos ecoguiados",
             "price": "$20000",
             "category": "Cursos",
-            "detail": "Adquiera los conocimientos básicos"
+            "detail": "Adquiera los conocimientos básicos",
+            "stock": 60
         }
     ]

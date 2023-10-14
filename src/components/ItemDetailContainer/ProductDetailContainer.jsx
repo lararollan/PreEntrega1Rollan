@@ -1,13 +1,35 @@
 import { Card, Button } from 'react-bootstrap';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './ProductDetailContainer.css';
+import ItemCount from '../common/ItemCount';
+import {useContext, useState} from "react";
+import { useCartContext } from '../context/CartContext';
 
 
 
 const ProductDetailContainer = ({product, children}) => {
 
-    const {id, image, title, price, detail} = product
+    const {id, image, title, price, detail, stock} = product
+    const { addToCart } = useCartContext()
+    const [quantityInCart, setQuantityInCart] = useState(0);
     
 
+    const handleAddToCart = (count) => {
+
+
+        setQuantityInCart(count);
+        console.log('agregado', count)
+        if (count > 0) {
+            addToCart({
+                id, title, image, price, quantity: count
+            })
+        }
+    };
+   
+   
+   
+   
+   
     return( 
        
         <Card className='productCard' key={id} >
@@ -21,8 +43,10 @@ const ProductDetailContainer = ({product, children}) => {
 <Card.Text>
 {detail}
 </Card.Text>
+<Card.Text>
+<ItemCount stock={stock} initial={quantityInCart} onAdd={handleAddToCart} />
+</Card.Text>
 
-<Button variant="primary">Agregar al carrito</Button>
 </Card.Body>
 </Card>
 

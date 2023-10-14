@@ -20,7 +20,9 @@ const ItemDetailContainer = ({product, children}) => {
 <div className="mt-auto">
 <Button as={Link} to={`/item/${product.id}`} className="cardButton" variant="primary">Ver detalle</Button>
 <Card.Text></Card.Text>
-<Button className="cardButton" variant="primary">Agregar al carrito</Button>
+<Button variant="primary">
+      <i className="bi bi-cart-fill"></i> Agregar al carrito
+    </Button>
 </div>
 </Card.Body>
 </div>
