@@ -1,3 +1,4 @@
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./style.css";
@@ -15,7 +16,7 @@ function App() {
   
   return (
     <>
-   
+     <CartProvider>
     <Router>
     <Navbar />
     <Routes>
@@ -30,7 +31,8 @@ function App() {
     <Footer></Footer>
 
     </Router>
-    <CartProvider>
+    
+  
     </CartProvider>
    
    

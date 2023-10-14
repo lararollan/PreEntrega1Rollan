@@ -39,23 +39,22 @@ const NavBar = () => {
             </Nav.Link>
             </Dropdown.Item>
             <Dropdown.Item >
-      <Nav.Link as={Link} to="/products">
-              Todos
-            </Nav.Link>
-            </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-    </Nav.Item>
-            
-          </Nav>
-         
-    </Navbar>
-        </Navbar.Collapse>
-        <Nav.Link as={Link} to="/cart">
-        <CartWidget />
-      </Nav.Link>
+            <Nav.Link as={Link} to="/products">
+Todos
+</Nav.Link>
+</Dropdown.Item>
+</Dropdown.Menu>
+</Dropdown>
+</Nav.Item>
+</Nav>
+<CartWidget></CartWidget>
+
+
+</Navbar.Collapse>
+</Container>
+</Navbar>
         
-      </Container>
+    
       
   );
 };

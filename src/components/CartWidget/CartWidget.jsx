@@ -1,4 +1,5 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
+
 import { useCartContext } from '../context/CartContext';
 
 const CartWidget = () => {
@@ -9,7 +10,7 @@ const CartWidget = () => {
         <>
         <div>
         <i className="bi bi-cart cartIcon" ></i>
-        <span className="number-icon badge rounded-pill"></span>
+        <span className="number-icon badge rounded-pill">{cart.items.length}</span>
 </div>
 </>
 
