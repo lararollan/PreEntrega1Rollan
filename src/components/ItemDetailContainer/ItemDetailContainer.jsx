@@ -15,14 +15,11 @@ const ItemDetailContainer = ({product, children}) => {
 <Card.Body className="d-flex flex-column">
 <Card.Title>{title}</Card.Title>
 <Card.Text className="flex-grow-1">
- {price}
+ ${price}
 </Card.Text>
 <div className="mt-auto">
 <Button as={Link} to={`/item/${product.id}`} className="cardButton" variant="primary">Ver detalle</Button>
-<Card.Text></Card.Text>
-<Button variant="primary">
-      <i className="bi bi-cart-fill"></i> Agregar al carrito
-    </Button>
+
 </div>
 </Card.Body>
 </div>

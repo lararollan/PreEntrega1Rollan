@@ -1,22 +1,32 @@
 import React from "react";
+import { useState } from "react";
 import { useCartContext } from "../context/CartContext";
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 
 
-const Cart = () => {
+const Cart = ({ show, onClose }) => {
     const { cart } = useCartContext();
 
+   
+    
     return (
-        <>
-        <h1>
-        Cart
-        </h1>
+       
+     
+
+      <Modal show={show} onHide={onClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Carrito</Modal.Title>
+        </Modal.Header>
+       
         {cart.items.length === 0 ? (
-                    <h3>
-                        Carrito vacío
-                    </h3>
+                    <Modal.Body>
+                  Carrito vacío
+                  </Modal.Body>
                      ) : (
+                      <Modal.Body>
                         <Table striped bordered hover>
                         <thead>
                           <tr>
@@ -41,9 +51,23 @@ const Cart = () => {
                             </tr>
                          </tbody>
                          </Table>
-                     )}
+                         </Modal.Body>)
+}
+                     <Modal.Footer>
+                     
+                     <Button variant="secondary" onClick={onClose}>
+            Cerrar
+          </Button>
+          <Button variant="primary" onClick={onClose}>
+            Checkout
+          </Button>
+        </Modal.Footer>
 
-        </>
+      </Modal>
+    
+    
+    
+        
 )};
 
 export default Cart;

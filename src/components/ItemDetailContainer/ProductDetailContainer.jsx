@@ -38,7 +38,7 @@ const ProductDetailContainer = ({product, children}) => {
 <Card.Title>{title}</Card.Title>
 <Card.Text>
    
-{price}
+${price}
 </Card.Text>
 <Card.Text>
 {detail}
