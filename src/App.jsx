@@ -16,12 +16,12 @@ function App() {
     <Router>
     <Navbar />
     <Routes>
-    <Route exact path='/' element={<ItemListContainer/>} />
+    <Route exact path='/' element={<ProductList/>} />
     <Route exact path='/products' element={<ProductList/>} />
     <Route exact path="/category/:categoryId" element={<CategoriesProductList/>}/>
     <Route exact path="item/:productId" element={<Detail/>}/>
     </Routes>
-    <ProductList></ProductList>
+    
     </Router>
     
    

@@ -37,7 +37,7 @@ const NavBar = () => {
             </Nav.Link>
             </Dropdown.Item>
             <Dropdown.Item >
-      <Nav.Link as={Link} to="/products">
+            <Nav.Link as={Link} to="/products">
               Todos
             </Nav.Link>
             </Dropdown.Item>
