@@ -1,6 +1,6 @@
 import React from "react";
 import "./Cart.css";
-
+import { Link } from 'react-router-dom';
 import { useCartContext } from "../context/CartContext";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
@@ -71,9 +71,9 @@ const Cart = ({ show, onClose }) => {
                      ) : (
                     
 <div>
-          <Button variant="success mx-1" onClick={onClose}>
-            Checkout
-          </Button>
+<Link to="./brief" className="btn btn-success mx-1" onClick={onClose}>
+  Checkout
+</Link>
 
            <Button variant="secondary" onClick={onClose}>
            Cerrar
