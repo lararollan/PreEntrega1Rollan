@@ -5,7 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const Footer = () => {
     return (
-        <div className="container-fluid fixed-bottom footer py-2">
+        <div className="container-fluid fixed-bottom footer py-1">
       <footer className=" text-center py-3">
         
        <Row>

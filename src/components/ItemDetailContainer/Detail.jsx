@@ -19,6 +19,7 @@ const Detail = () => {
             getDoc(productRef).then((snapshot)=>{
 if(snapshot.exists()){
   setSelectedProduct({ id: snapshot.id, ...snapshot.data()})
+  const productTitle = selectedProduct.title;
   
   setLoading(false)
   
