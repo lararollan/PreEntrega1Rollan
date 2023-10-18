@@ -1,3 +1,23 @@
+.briefTitulo{
+    color: #FB8500;
+    margin-top: 2rem;
+
+}
+
+
+.briefTable{
+    margin-top:2rem;
+    
+}
+
+th{
+    color:rgb(2, 48, 71) !important;
+}
+
+td{
+    color:rgb(2, 48, 71) !important;
+}
+
 .error{
     margin-top: 10%;
 }
@@ -5,6 +25,10 @@
 input{
     border: solid 3px black;
     margin: 0.5rem;
+}
+
+.imagen{
+    max-width: 100px;
 }
 
 .buttonEnviar{

@@ -2,12 +2,29 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "./ProductList.css";  
-import useAsyncMock from "../../hooks/useAsyncMock";
-import products from "../../mocks/products.json";
+import { useState, useEffect } from "react";
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
 const ProductList = () => {
-    const {data, loading} = useAsyncMock(products)
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState (true);
+  const [error, setError] = useState("");
+    
+useEffect(() => {
+  const fetchData = async () => {
+  const db = getFirestore();
+  const querySnapshot = await getDocs(collection(db, "products"))
+  const newData = querySnapshot.docs.map((doc)=>(console.log(doc), {id: doc.id, ...doc.data()}))
+  setData(newData);
+  setLoading(false);
+ 
+ 
+}
+fetchData();
+}, [])
+
     if (loading) 
     return (
       <div>
@@ -19,7 +36,7 @@ const ProductList = () => {
 
     return (
 
-      <Container>
+      <Container className='productListContainer'>
             <h2 className='categoryTitle'>Productos</h2>
             <Row>
                 {data.map((product) => (

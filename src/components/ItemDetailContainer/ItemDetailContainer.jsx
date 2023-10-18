@@ -2,10 +2,11 @@ import { Card, Button } from 'react-bootstrap';
 import './ItemDetailContainer.css';
 import { Link } from 'react-router-dom';
 
+
 const ItemDetailContainer = ({product, children}) => {
 
-    const {id, image, title, price} = product
-    
+    const {id, image, title, price, stock} = product
+   
 
     return( 
        

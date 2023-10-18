@@ -32,6 +32,8 @@
     font-size: 1.2rem;
   }
 
-  .footer__redes__icono:hover {
-    transform: translateY(-0.125rem);
+
+  
+.footer__redes__item:hover{
+    transform: translateY(-0.125rem) !important;;
   }

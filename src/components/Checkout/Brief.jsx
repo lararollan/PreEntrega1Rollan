@@ -1,18 +1,15 @@
 import { useState } from 'react';
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import "./Brief.css";
 import { Link } from 'react-router-dom';
 import { useCartContext } from "../context/CartContext";
 import Table from 'react-bootstrap/Table';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 
 
-
 const Brief = () => {
-    const { cart} = useCartContext();
+    const { cart } = useCartContext();
     const [formData, setFormData] = useState({
         nombre: '',
         apellido: '',
@@ -21,6 +18,9 @@ const Brief = () => {
         confirmEmail: '',
       });
     
+      const [buyerId, setBuyerId] = useState(null);
+
+
       const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -29,17 +29,40 @@ const Brief = () => {
         });
       };
     
-      const handleSubmit = (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
         const { email, confirmEmail, ...rest } = formData;
     
         if (email === confirmEmail) {
-          // Los correos electrónicos son iguales, puedes continuar con el procesamiento.
           console.log('Formulario válido:', { email, ...rest });
         } else {
-          alert('Los correos electrónicos no coinciden. Por favor, inténtelo de nuevo.');
+          alert('vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.htmlLos correos electrónicos no coinciden. Por favor, inténtelo de nuevo.');
         }
+      
+
+      const buyerData = {
+        nombre: formData.nombre,
+        apellido: formData.apellido,
+        direccion: formData.direccion,
+        telefono: formData.telefono,
+        email: formData.email,
+        items: cart.items
       };
+
+      const db = getFirestore();
+
+      try {
+        
+        const buyerCollection = collection(db, "buyer")
+        addDoc(buyerCollection, buyerData).then(({ id}) => setBuyerId(id));
+        console.log("Datos del buyer agregados a firestore.");
+      } catch (error) {
+        console.error("Error al agregar datos a firestore: ", error);
+      }
+    };
+
+
+
 
 return(
 
@@ -54,7 +77,8 @@ return(
 </div>
          ) : (
 <div>
-    <Table striped bordered hover>
+  <h2 className='briefTitulo'>Resumen de compra</h2>
+    <Table className='briefTable' striped bordered hover>
     <thead>
       <tr>
         <th className="align-middle text-center">Imagen</th>
