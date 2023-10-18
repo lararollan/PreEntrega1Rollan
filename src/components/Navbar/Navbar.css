@@ -5,12 +5,16 @@
 .navbar .navbar-brand{
   color: rgb(2, 48, 71) !important;
   font-weight: bold;
+  
 }
  
 
 .navbar .nav-item{
   color: rgb(2, 48, 71) !important;
-  padding-left: 3rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+
+  /* padding-left: 3rem !important;  */
 }
 
 .products{
