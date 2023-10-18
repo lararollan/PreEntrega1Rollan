@@ -48,7 +48,7 @@ const CategoriesProductList = () => {
     const categorySelected = data.filter( category => category.category.toLowerCase() === categoryId.toLocaleLowerCase());
 
     return (
-      <Container>
+      <Container className="mb-5">
     <h2 className="categoryTitle">{categoryId.toUpperCase()}</h2>
     <Row>
       {categorySelected.map((product) => (

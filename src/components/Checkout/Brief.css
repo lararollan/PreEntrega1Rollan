@@ -34,3 +34,24 @@ input{
 .buttonEnviar{
     margin-bottom: 3rem;
 }
+
+
+
+   
+
+
+.headerModal{
+    background-color: #FB8500 !important;
+    border:  solid 3px rgb(2, 48, 71);
+   
+}
+
+.modalTitle{
+    text-align: center;
+    color: rgb(2, 48, 71);   
+}
+
+.textMessage{
+    text-align: center;
+    color: rgb(2, 48, 71); 
+}

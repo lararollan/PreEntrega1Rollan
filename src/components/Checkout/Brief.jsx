@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom';
 import { useCartContext } from "../context/CartContext";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 
 
 const Brief = () => {
+    const [showModal, setShowModal] = useState(false);
     const { cart } = useCartContext();
+    const [successMessage, setSuccessMessage] = useState(null);
+
     const [formData, setFormData] = useState({
         nombre: '',
         apellido: '',
@@ -36,37 +40,61 @@ const Brief = () => {
         if (email === confirmEmail) {
           console.log('Formulario válido:', { email, ...rest });
         } else {
-          alert('vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.htmlLos correos electrónicos no coinciden. Por favor, inténtelo de nuevo.');
+          alert("correos electrónicos no coinciden. Por favor, inténtelo de nuevo.");
         }
       
+       
 
-      const buyerData = {
-        nombre: formData.nombre,
-        apellido: formData.apellido,
-        direccion: formData.direccion,
-        telefono: formData.telefono,
-        email: formData.email,
-        items: cart.items
-      };
+        const itemsInCart = cart.items.map((item) => ({
+          id: item.id,
+          title: item.title,
+          price: item.price,
+          quantity: item.quantity,
+        }));
+    
+        const total = itemsInCart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    
+        const buyerData = {
+          nombre: formData.nombre,
+          apellido: formData.apellido,
+          direccion: formData.direccion,
+          telefono: formData.telefono,
+          email: formData.email,
+          items: itemsInCart,
+          total: total,
+        };
 
       const db = getFirestore();
 
       try {
         
-        const buyerCollection = collection(db, "buyer")
-        addDoc(buyerCollection, buyerData).then(({ id}) => setBuyerId(id));
+        const buyerCollection = collection(db, "orders");
+        const docRef = await addDoc(buyerCollection, buyerData);
+        setBuyerId(docRef.id);
         console.log("Datos del buyer agregados a firestore.");
+        setSuccessMessage( <p className='textMessage'>
+          Compra realizada con éxito. Su ID de compra es:{' '}
+          <span style={{ fontWeight: 'bold' }}>{docRef.id}</span>
+        </p>
+      );
+        setShowModal(true);
+       
       } catch (error) {
         console.error("Error al agregar datos a firestore: ", error);
       }
+     
     };
 
+    const handleClose = () => {
+      setShowModal(false);
+    };
 
 
 
 return(
 
     <>
+    
     {cart.items.length === 0 ? (
         
       <div className="error">
@@ -197,15 +225,23 @@ return(
      
       <Button className="buttonEnviar" type="submit">Finalizar compra</Button>
     </form>
-  
- 
-
-
-   
-  
   </div>
      )}
+
+     {successMessage && (
+       <Modal className='modal' show={showModal} onHide={handleClose}size="md">
+       <Modal.Header className='headerModal' closeButton>
+         <Modal.Title className='modalTitle'>Felicitaciones!</Modal.Title>
+         </Modal.Header>
+         <Modal.Body className='modalBody'> <p className="success-message">{successMessage}</p></Modal.Body>
+         </Modal>
+  
+  
+  
+)}
      </>
+     
+     
 )
 }
 

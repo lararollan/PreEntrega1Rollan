@@ -35,7 +35,7 @@ const Cart = ({ show, onClose }) => {
                         <Table striped bordered hover>
                         <thead>
                           <tr>
-                            <th className="align-middle text-center">Imagen</th>
+                            <th className="align-middle text-center d-sm-none d-lg-block">Imagen</th>
                             <th className="align-middle text-center">Producto</th>
                             <th className="align-middle text-center">Cantidad</th>
                             <th className="align-middle text-center">Precio</th>
@@ -47,7 +47,7 @@ const Cart = ({ show, onClose }) => {
                         <tbody>
                             {cart.items.map((item)=> (
                              <tr key={item.id}>
-                             <td className="align-middle text-center"><img className="imagen" src={item.image} alt={item.title} /></td>
+                             <td className="align-middle text-center d-sm-none d-lg-block"><img className="imagen" src={item.image} alt={item.title} /></td>
                              <td className="align-middle text-center">{item.title}</td>
                              <td className="align-middle text-center">{item.quantity}</td>
                              <td className="align-middle text-center">${item.price}</td>
