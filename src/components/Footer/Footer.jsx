@@ -10,7 +10,7 @@ const Footer = () => {
         
        <Row>
           <div
-            className="col-md-4 footer__redes d-flex align-items-center justify-content-center"
+            className="col-lg-4 footer__redes d-flex align-items-center justify-content-center"
           >
             <h5 className="footer__redes__texto pe-3">Seguinos en redes!</h5>
             <ul className="nav footer__redes__lista d-flex">
@@ -30,12 +30,12 @@ const Footer = () => {
             </ul>
           </div>
           <div
-            className="col-md-4 footer__redes d-flex align-items-center justify-content-center"
+            className="col-lg-4 footer__redes d-flex align-items-center justify-content-center"
           >
             <p className="brand">&copy; {new Date().getFullYear()} Ecosimuladores</p>
           </div>
           <div
-            className="col-md-4 footer__mail d-flex align-items-center justify-content-center"
+            className="d-sm-none d-lg-block col-lg-4 footer__mail d-flex align-items-center justify-content-center"
           >
             <i className="footer__mail__icono bi bi-envelope-at"></i>
             <h6>ecosimuladores@ejemplo.com</h6>

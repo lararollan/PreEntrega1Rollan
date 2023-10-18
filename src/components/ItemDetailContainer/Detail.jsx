@@ -1,13 +1,43 @@
 import { useParams } from "react-router-dom";
 import { Container } from 'react-bootstrap';
-import useAsyncMock from "../../hooks/useAsyncMock";
-import products from '../../mocks/products.json';
+import { useEffect, useState } from 'react';
 import ProductDetailContainer from "./ProductDetailContainer";
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 const Detail = () => {
-   
-        const {productId} = useParams();
-        const {data, loading} = useAsyncMock(products);
+  const {productId} = useParams();
+  
+  const [loading, setLoading] = useState (true);
+  const [selectedProduct, setSelectedProduct] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+          
+            const db = getFirestore();
+            const productRef = doc(db, 'products', productId);
+            getDoc(productRef).then((snapshot)=>{
+if(snapshot.exists()){
+  setSelectedProduct({ id: snapshot.id, ...snapshot.data()})
+  
+  setLoading(false)
+  
+}
+
+            })
+            
+            
+           } catch (error) {
+            console.error("Error al obtener datos de Firestore: ", error);
+        }
+     };
+
+
+    fetchData();
+
+  }); 
+
+
     
         if (loading) 
         return (
@@ -18,14 +48,14 @@ const Detail = () => {
           </div>
         );
     
-        const productSelected = data.find((product) => product.id === parseInt(productId, 10));
+        
 
         return (
             <Container>
-                {productSelected ? (
+                {selectedProduct ? (
                     <>
-                        <h2 style={{ marginTop: '1rem' }} className="productTitle">{productSelected.title}</h2>
-                        <ProductDetailContainer key={productSelected.id} product={productSelected} />
+                        <h2 style={{ marginTop: '1rem' }} className="productTitle">{selectedProduct.title}</h2>
+                        <ProductDetailContainer key={selectedProduct.id} product={selectedProduct} />
                     </>
                 ) : (
                     <p>Producto no encontrado</p>
