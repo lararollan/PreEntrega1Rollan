@@ -13,13 +13,13 @@ const CartProvider = ({ children }) => {
     );
 
     if (existingProductIndex !== -1) {
-      // El producto ya existe en el carrito, actualiza la cantidad
+      // Actualiza n de producto ya agregado
       const updatedCart = { ...cart };
       updatedCart.items[existingProductIndex].quantity += product.quantity;
       updatedCart.total += product.price * product.quantity;
       setCart(updatedCart);
     } else {
-      // El producto no existe en el carrito, agrégalo
+      // Agrega nuevo producto
       setCart((prevCart) => ({
         ...prevCart,
         items: [...prevCart.items, product],

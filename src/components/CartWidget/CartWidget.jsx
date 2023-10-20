@@ -10,7 +10,7 @@ const CartWidget = () => {
         <>
         <div>
         <i className="bi bi-cart cartIcon" ></i>
-        <span className="number-icon badge rounded-pill">{cart.items.length}</span>
+        <span className="number-icon badge rounded-pill"> {cart.items.reduce((total, item) => total + item.quantity, 0)}</span>
 </div>
 </>
 
