@@ -1,4 +1,4 @@
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './ProductDetailContainer.css';
 import ItemCount from '../common/ItemCount';
